@@ -1,0 +1,92 @@
+[project]
+# Python 3.10+ support.
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 120  # Maximum line length
+# Ignored directories
+exclude = [
+    ".gitignore", ".env", "env", ".venv", "venv", ".vscode", ".idea", ".ruff_cache"
+]
+indent-width = 4  # Spaces per indentation level
+output-format = "full"  # Terminal output format
+fix = false  # Automatic fixes
+preview = true  # Preview mode
+respect-gitignore = true  # Respect rules from .gitignore
+src = [".", "src", "tests"]  # Source paths
+
+[tool.ruff.lint]
+# Lint rules
+select = [
+    "A",  # Check whether builtins are used as variables or parameters
+    "E",  # Style errors
+    "F",  # Import errors
+    "W",  # Whitespace and indentation errors
+    "N",  # Variable and function naming
+    "B",  # Program design errors
+    "Q",  # Quote errors
+    "R",  # Code refactoring
+    "I",  # Import sorting (isort)
+    "ANN",  # Type annotations
+    "ARG",  # Unused arguments
+    "COM",  # Comma errors
+    "C90",  # Complex structure
+    "ISC",  # Correct string literals
+    "RET",  # Return issues
+    "SIM",  # Code simplification hints
+    "UP003",  # Unnecessary use of type()
+
+    # Unnecessary parentheses
+    "UP034", "UP039",
+
+    # Docstring rules
+    "D200", "D201", "D202", "D204", "D206", "D207", "D208",
+    "D209", "D210", "D211", "D212", "D300", "D400", "D419",
+
+    # Python 3.10+ modernization
+    "UP003", "UP034", "UP039", "UP035", "UP036",
+
+    # Code modernization
+    "FURB105", "FURB110", "FURB113", "FURB131",
+    "FURB136", "FURB132", "FURB142", "FURB145",
+    "FURB148", "FURB152", "FURB187", "FURB192",
+
+    # RUF ruleset
+    "RUF005", "RUF015", "RUF016", "RUF029", "RUF030"
+]
+# Ignored rules
+ignore = [
+    "A004", "A005", "A006",
+    "ANN002", "ANN003", "ANN101", "ANN102", "ANN401",
+    "SIM105", "SIM112", "SIM220", "SIM222", "SIM223"
+]
+
+[tool.ruff.lint.flake8-quotes]
+avoid-escape = false  # Avoid single quotes if the string contains them
+docstring-quotes = "double"  # Quote style for docstrings
+inline-quotes = "single"  # Quote style for inline strings
+multiline-quotes = "double"  # Quote style for multiline strings
+
+[tool.ruff.lint.isort]
+section-order = ["future", "standard-library", "third-party", "first-party"]  # Import section order
+
+[tool.ruff.format]
+docstring-code-format = false  # Format code inside docstrings
+docstring-code-line-length = 120  # Maximum line length for code in docstrings
+skip-magic-trailing-comma = true  # Skip magic trailing comma
+indent-style = "space"  # Use spaces for indentation
+line-ending = "lf"  # Use LF as line ending
+quote-style = "single"  # Use single quotes for strings
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true  # Ignore imports from libraries without type annotations (third-party)
+strict = true  # Strict mode for maximum type safety
+disallow_untyped_defs = true  # Disallow functions without type annotations
+disallow_incomplete_defs = true  # Disallow incomplete type annotations
+warn_unused_ignores = true  # Warn when a # type: ignore directive is unused
+warn_return_any = true  # Warn when a function return type does not match its annotation
+warn_redundant_casts = true  # Warn about redundant type casts (unnecessary cast() calls)
+warn_no_return = true  # Warn about functions with no explicit return value
+check_untyped_defs = true  # Require checking for functions without type annotations
+show_column_numbers = true  # Show column numbers in errors

@@ -1,0 +1,81 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+*.egg
+wheels/
+*.spec
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Caches & linters
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.tox/
+.nox/
+.pytest_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+
+# Database & Logs
+*.sqlite3
+*.sqlite3-journal
+*.log
+logs/
+
+# Documentation & CI (exclude from build context)
+README.md
+LICENSE
+CHANGELOG.md
+docs/
+.github/
+.gitlab-ci.yml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+
+# Docker
+Dockerfile*
+.dockerignore
+.docker/
+
+# Claude
+.claude/
+CLAUDE.md
+.claudeignore
