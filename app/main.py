@@ -5,11 +5,10 @@ from fastapi import FastAPI
 
 from app.core.database import engine
 from app.models.base import Base
-from app.models.cards import WordCard  # noqa
 
 
 @asynccontextmanager
-async def lifespan(_app: FastAPI) -> AsyncGenerator[None, None]:
+async def lifespan(_: FastAPI) -> AsyncGenerator[None, None]:
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     yield
