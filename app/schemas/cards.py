@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CardCreate(BaseModel):
@@ -8,11 +8,10 @@ class CardCreate(BaseModel):
 
 
 class CardResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)  # дозволяє серіалізацію з ORM-об'єктів SQLAlchemy
+
     id: int
     word: str
     source_lang: str
     target_lang: str
     card_text: str
-
-    class ConfigDict:
-        from_attributes = True  # дозволяє серіалізацію з ORM-об'єктів SQLAlchemy
