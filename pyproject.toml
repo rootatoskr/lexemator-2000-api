@@ -18,15 +18,15 @@ src = [".", "src", "tests"]  # Source paths
 [tool.ruff.lint]
 # Lint rules
 select = [
-    "A",  # Check whether builtins are used as variables or parameters
-    "E",  # Style errors
-    "F",  # Import errors
-    "W",  # Whitespace and indentation errors
-    "N",  # Variable and function naming
-    "B",  # Program design errors
-    "Q",  # Quote errors
-    "R",  # Code refactoring
-    "I",  # Import sorting (isort)
+    "A",    # Check whether builtins are used as variables or parameters
+    "E",    # Style errors
+    "F",    # Import errors
+    "W",    # Whitespace and indentation errors
+    "N",    # Variable and function naming
+    "B",    # Program design errors
+    "Q",    # Quote errors
+    "R",    # Code refactoring
+    "I",    # Import sorting (isort)
     "ANN",  # Type annotations
     "ARG",  # Unused arguments
     "COM",  # Comma errors
@@ -34,17 +34,13 @@ select = [
     "ISC",  # Correct string literals
     "RET",  # Return issues
     "SIM",  # Code simplification hints
-    "UP003",  # Unnecessary use of type()
-
-    # Unnecessary parentheses
-    "UP034", "UP039",
-
+    
     # Docstring rules
     "D200", "D201", "D202", "D204", "D206", "D207", "D208",
     "D209", "D210", "D211", "D212", "D300", "D400", "D419",
 
     # Python 3.10+ modernization
-    "UP003", "UP034", "UP039", "UP035", "UP036",
+    "UP003", "UP034", "UP035", "UP036", "UP039",
 
     # Code modernization
     "FURB105", "FURB110", "FURB113", "FURB131",
@@ -57,8 +53,10 @@ select = [
 # Ignored rules
 ignore = [
     "A004", "A005", "A006",
-    "ANN002", "ANN003", "ANN101", "ANN102", "ANN401",
-    "SIM105", "SIM112", "SIM220", "SIM222", "SIM223"
+    "ANN002", "ANN003", "ANN401",  # Видалено застарілі ANN101, ANN102
+    "SIM105", "SIM112", "SIM220", "SIM222", "SIM223",
+    "COM812",  # Ігноруємо для запобігання конфліктів з ruff format
+    "ISC001"   # Рекомендовано вимкнути разом з COM812 при використанні форматувальника
 ]
 
 [tool.ruff.lint.flake8-quotes]
@@ -73,7 +71,7 @@ section-order = ["future", "standard-library", "third-party", "first-party"]  # 
 [tool.ruff.format]
 docstring-code-format = false  # Format code inside docstrings
 docstring-code-line-length = 120  # Maximum line length for code in docstrings
-skip-magic-trailing-comma = true  # Skip magic trailing comma
+skip-magic-trailing-comma = false  # Виправлено для збереження переносів рядків
 indent-style = "space"  # Use spaces for indentation
 line-ending = "lf"  # Use LF as line ending
 quote-style = "single"  # Use single quotes for strings
