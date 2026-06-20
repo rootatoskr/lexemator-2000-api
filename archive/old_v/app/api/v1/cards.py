@@ -19,7 +19,6 @@ async def create_or_get_card(card_data: CardCreate, db: AsyncSession = Depends(g
     )
     result = await db.execute(query)
     existing_card = result.scalar_one_or_none()
-
     if existing_card:
         return existing_card
 
@@ -35,3 +34,8 @@ async def create_or_get_card(card_data: CardCreate, db: AsyncSession = Depends(g
     await db.commit()
     await db.refresh(new_card)
     return new_card
+
+
+@router.get('/', status_code=status.HTTP_201_CREATED)
+async def health_check() -> dict[str, str]:
+    return {'status': str(status_code)}
